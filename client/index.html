@@ -1,100 +1,43 @@
-<!doctype html>
-<html lang="en" ng-app>
-  <head>
-    <title>Chat Example</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
-    <style>
-      body {
-        padding-top: 60px;
-      }
-    </style>
-    <script>
-      function ChatController($scope) {
-        var socket = io.connect();
+<!DOCTYPE html>
+<html lang="en" >
 
-        $scope.messages = [];
-        $scope.roster = [];
-        $scope.name = '';
-        $scope.text = '';
+<head>
 
-        socket.on('connect', function () {
-          $scope.setName();
-        });
+     <meta charset="UTF-8">
+  <!--   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+     <link href="/client/css/bootstrap-tag-cloud.css" rel="stylesheet">
+     <link rel="stylesheet" href="/client/file.css">
+     <title>Stock Market Charts</title>
 
-        socket.on('message', function (msg) {
-          $scope.messages.push(msg);
-          $scope.$apply();
-        });
+</head>
 
-        socket.on('roster', function (names) {
-          $scope.roster = names;
-          $scope.$apply();
-        });
-
-        $scope.send = function send() {
-          console.log('Sending message:', $scope.text);
-          socket.emit('message', $scope.text);
-          $scope.text = '';
-        };
-
-        $scope.setName = function setName() {
-          socket.emit('identify', $scope.name);
-        };
-      }
-    </script>
-  </head>
-  <body>
-    <div class="container" ng-controller="ChatController">
-      <div class="navbar navbar-fixed-top navbar-inverse">
-        <div class="navbar-inner">
-          <div class="pull-right">
-            <a href="https://c9.io" class="brand">Cloud9 IDE</a>
-          </div>
-        </div>
-      </div>
-      <div class="page-header">
-        <h1>Chat Example</h1>
-      </div>
-      <div class="row">
-        <div class="span3">
-          <ul class="nav nav-list well">
-            <li class="nav-header">Local Users</li>
-            <li ng-repeat="user in roster" ng-bind="user">
-            </li>
-          </ul>
-        </div>
-        <div class="span9">
-          <table class="table table-striped table-bordered">
-            <thead>
-              <tr>
-                <th class="span2">Name</th>
-                <th class="span7">Text</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="msg in messages">
-                <td class="span2" ng-bind="msg.name"></td>
-                <td class="span7" ng-bind="msg.text"></td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="row controls">
-            <form ng-submit="send()">
-              <div class="span2"><input type="text" class="input-block-level" ng-model="name" ng-change="setName()" placeholder="Your Name"></div>
-              <div class="input-append span7">
-                <input type="text" class="span6" ng-model="text" placeholder="Message">
-                <input type="submit" class="span1 btn btn-primary" value="Send" ng-disabled="!text">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+<body ng-app="myApp">
+    <div class="container container-fluid" ng-controller="mainController" >
+    <div id="container" style="height: 400px; min-width: 310px">    </div>
+    
+             <div id="tag-info" class="input-append">
+                  <input ng-keyup="$event.keyCode == 13 && addStock(s_name)" id="stock_input" type="text" placeholder="Enter stock symbol" ng-model="s_name"> <!--get StockName from here -->
+                  <button id="addsymbol" class="btn btn-success btn-sm" type="button" ng-click="addStock(s_name)">Add <i class="fa fa-plus"></i></button>
+             </div>
+             <ul id="tag-cloud">
+             
+                 <li class="tag-cloud tag-cloud-info" ng-repeat="stock in name_list" ng-click="removeOne(stock)" ng-cloak>{{stock}}</li>
+             </ul>
+    
     </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/angular.min.js"></script>
-  </body>
+    
+    
+</body>
+    <script src="/bower_components/socket.io/socket.io.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script src="/bower_components/highcharts/highstock.js"></script>
+    <script src="/bower_components/highcharts/modules/exporting.js"></script>
+    <script src="/client/js/bootstrap-tag-cloud.js"></script>
+    <script src="/client/client.js"></script>
+    
 </html>
+
