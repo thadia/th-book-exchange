@@ -2,7 +2,7 @@
   "name": "book-exchange",
   "version": "0.0.0",
   "description": "book_exchage",
-  "main": "server.js",
+  "main": "index.js",
   "repository": "",
   "author": "martha.obrinteschi@gmail.com",
   "dependencies": {
