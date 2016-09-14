@@ -18,6 +18,8 @@ myApp.controller('mainController', function($scope, $http, $window) {
      $scope.login = function(){
           $http.get("/login")
             .then(function (response) {
+              if(typeof response.redirect == 'string')
+               $window.location.href = '/home';
         });
      }  
      
