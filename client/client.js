@@ -26,7 +26,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
      } 
      
      $scope.logout = function(){
-          $http.get("/login")
+          $http.get("/logout")
             .then(function (response) {
                console.log('LogOut was pressed.');
                $window.location.href = '/';
