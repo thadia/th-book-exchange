@@ -15,8 +15,8 @@ myApp.controller('mainController', function($scope, $http, $window) {
         });
      }
      
-     $scope.login = function(){
-          $http.get("/login")
+     $scope.login = function(userName,userPwd){
+          $http.get("/login/"+userName+"/"+userPwd)
             .then(function (response) {
               if(response.data == 'true'){
                console.log(response.data + 'LOG HERE');
