@@ -48,8 +48,7 @@ describe('DB Tests', function(){
                     assert.equal(false, isMatch);
                 });
             });  
-            mongoose.connection.close();
-      });
+       });
   });
 
   

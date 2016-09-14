@@ -13,7 +13,14 @@ myApp.controller('mainController', function($scope, $http, $window) {
             .then(function (response) {
             $scope.polls = response.data;
         });
-     } 
+     }
+     
+     $scope.login = function(){
+          $http.get("/login")
+            .then(function (response) {
+        });
+     }  
+     
     $scope.newPoll = function(pollName, items ) {
          // polls/post/:user/:title/:list
          
