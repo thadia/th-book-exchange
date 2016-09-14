@@ -18,8 +18,18 @@ myApp.controller('mainController', function($scope, $http, $window) {
      $scope.login = function(){
           $http.get("/login")
             .then(function (response) {
-              if(typeof response.redirect == 'string')
-               $window.location.href = '/home';
+              if(response.data == 'true'){
+               console.log(response.data + 'LOG HERE');
+               $window.location.href = '/home/true';
+              }
+        });
+     } 
+     
+     $scope.logout = function(){
+          $http.get("/login")
+            .then(function (response) {
+               console.log('LogOut was pressed.');
+               $window.location.href = '/';
         });
      }  
      
