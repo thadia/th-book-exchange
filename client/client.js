@@ -7,11 +7,18 @@ myApp.controller('mainController', function($scope, $http, $window) {
  //   .then(function (response) {
  //        $scope.polls = response.data;
  // }); 
-
+     $http.get("/username")
+     .then(function (response) {
+              if(response.data !=  null){
+               $scope.userName=response.data;
+               console.log(response.data + ' Get My Username ' +  $scope.userName);
+              }
+    });
+    
     $scope.getAll = function(){
           $http.get("/polls/all")
             .then(function (response) {
-            $scope.polls = response.data;
+           
         });
      }
      
@@ -19,8 +26,19 @@ myApp.controller('mainController', function($scope, $http, $window) {
           $http.get("/login/"+userName+"/"+userPwd)
             .then(function (response) {
               if(response.data == 'true'){
+               userName=userName;
                console.log(response.data + 'LOG HERE');
                $window.location.href = '/home/true';
+              }
+        });
+     } 
+     
+      $scope.getUserName = function(){
+          $http.get("/username")
+            .then(function (response) {
+              if(response.data !=  null){
+               $scope.userName=response.data;
+               console.log(response.data + ' Get My Username');
               }
         });
      } 
@@ -29,6 +47,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
           $http.get("/create/user/"+userName+"/"+userPwd)
             .then(function (response) {
               if(response.data == 'true'){
+               $scope.userName=userName;
                console.log(response.data + 'LOG HERE');
                $window.location.href = '/home/true';
               }
