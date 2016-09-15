@@ -57,8 +57,12 @@ myApp.controller('mainController', function($scope, $http, $window) {
      $scope.logout = function(){
           $http.get("/logout")
             .then(function (response) {
-               console.log('LogOut was pressed.');
+               console.log('LogOut was pressed. ');
+               console.log(' Username before logout: ' +  $scope.userName);
+               $scope.userName=null;
                $window.location.href = '/';
+               console.log(' Username after logout: ' +  $scope.userName);
+
         });
      }  
      
