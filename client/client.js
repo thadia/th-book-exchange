@@ -25,6 +25,16 @@ myApp.controller('mainController', function($scope, $http, $window) {
         });
      } 
      
+     $scope.create = function(userName,userPwd){
+          $http.get("/create/user/"+userName+"/"+userPwd)
+            .then(function (response) {
+              if(response.data == 'true'){
+               console.log(response.data + 'LOG HERE');
+               $window.location.href = '/home/true';
+              }
+        });
+     } 
+     
      $scope.logout = function(){
           $http.get("/logout")
             .then(function (response) {
