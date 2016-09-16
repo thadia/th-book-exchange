@@ -59,12 +59,14 @@
                 <span class="input-group-addon" id="sizing-addon2" >UserName</span>
                 <input type="text" class="form-control" placeholder={{userName}} aria-describedby="sizing-addon2" readonly>
                 <span class="input-group-addon" id="sizing-addon2">Name</span>
-                <input type="text" class="form-control" placeholder={{fullName}} aria-describedby="sizing-addon2">
-                <span class="input-group-addon" id="sizing-addon2">Location</span>
-                <input type="text" class="form-control" placeholder={{location}} aria-describedby="sizing-addon2">
+                <input type="text" class="form-control" ng-model="fullName" placeholder={{fullName}} aria-describedby="sizing-addon2">
+                <span class="input-group-addon" id="sizing-addon2">City</span>
+                <input type="text" class="form-control" ng-model="city" placeholder={{city}} aria-describedby="sizing-addon2">
+                <span class="input-group-addon" id="sizing-addon2">State</span>
+                <input type="text" class="form-control" ng-model="state" placeholder={{state}} aria-describedby="sizing-addon2">
             </div>
              
-            <button type="button" class="btn btn-warning" id="saveInfo">
+            <button type="button" class="btn btn-warning" id="saveInfo" ng-click="saveMyData(fullName,city,state)">
               <span class="glyphicon glyphicon-floppy-disk" aria-hidden="false">Save</span>
             </button>
             
