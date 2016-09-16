@@ -10,3 +10,10 @@ body{
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
+
+
+#saveInfo {
+ margin-top:6px !important;
+ 
+  
+}  
