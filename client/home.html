@@ -94,7 +94,19 @@
             <h3 class="panel-title">Add Book</h3>
           </div>
           <div class="panel-body">
-            Panel content
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2">Title</span>
+                <input type="text" class="form-control" ng-model="title" placeholder={{title}} aria-describedby="sizing-addon2">
+                <span class="input-group-addon" id="sizing-addon2">Author</span>
+                <input type="text" class="form-control" ng-model="author" placeholder={{author}} aria-describedby="sizing-addon2">
+                <span class="input-group-addon" id="sizing-addon2">Year</span>
+                <input type="text" class="form-control" ng-model="year" placeholder={{year}} aria-describedby="sizing-addon2">
+            </div>
+             
+            <button type="button" class="btn btn-info" id="saveInfo" ng-click="addBook(title,author,year)">
+              <span class="glyphicon glyphicon-floppy-disk" aria-hidden="false">Add</span>
+            </button>
+             
           </div>
      </div>
     
