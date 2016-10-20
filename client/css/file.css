@@ -16,4 +16,8 @@ body{
  margin-top:6px !important;
  
   
-}  
+}
+
+#sizing-addon2 {
+ min-height: 39px; 
+}
