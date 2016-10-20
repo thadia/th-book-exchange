@@ -50,65 +50,46 @@
   
 </nav>
 
-     <div class="panel panel-warning">
-          <div class="panel-heading">
-            <h3 class="panel-title">My Info: {{userName}}</h3>
-          </div>
-          <div class="panel-body">
-            <div class="input-group">
+     
+     <div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">My Info {{userName}}</a></li>
+    <li><a data-toggle="tab" href="#menu1">My Books</a></li>
+    <li><a data-toggle="tab" href="#menu2">My Trades</a></li>
+    <li><a data-toggle="tab" href="#menu3">Add Book</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>My Info</h3>
+      
+       <div class="input-group">
                 <span class="input-group-addon" id="sizing-addon2">Name</span>
                 <input type="text" class="form-control" ng-model="fullName" placeholder={{fullName}} aria-describedby="sizing-addon2">
                 <span class="input-group-addon" id="sizing-addon2">City</span>
                 <input type="text" class="form-control" ng-model="city" placeholder={{city}} aria-describedby="sizing-addon2">
                 <span class="input-group-addon" id="sizing-addon2">State</span>
                 <input type="text" class="form-control" ng-model="state" placeholder={{state}} aria-describedby="sizing-addon2">
-            </div>
-             
-            <button type="button" class="btn btn-warning" id="saveInfo" ng-click="saveMyData(fullName,city,state)">
-              <span class="glyphicon glyphicon-floppy-disk" aria-hidden="false">Save</span>
-            </button>
-            
-          </div>
-     </div>
-     
-     <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title">My Books</h3>
-          </div>
-          <div class="panel-body">
-            Panel content
-          </div>
-     </div>
-     
-      <div class="panel panel-success">
-          <div class="panel-heading">
-            <h3 class="panel-title">My Trades</h3>
-          </div>
-          <div class="panel-body">
-            Panel content
-          </div>
-     </div>
+       </div>
+      
+      
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>My Books</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>My Trades</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>My Book</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+</div>
 
-       <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title">Add Book</h3>
-          </div>
-          <div class="panel-body">
-            <div class="input-group">
-                <span class="input-group-addon" id="sizing-addon2">Title</span>
-                <input type="text" class="form-control" ng-model="title" placeholder={{title}} aria-describedby="sizing-addon2">
-                <span class="input-group-addon" id="sizing-addon2">Author</span>
-                <input type="text" class="form-control" ng-model="author" placeholder={{author}} aria-describedby="sizing-addon2">
-                <span class="input-group-addon" id="sizing-addon2">Year</span>
-                <input type="text" class="form-control" ng-model="year" placeholder={{year}} aria-describedby="sizing-addon2">
-            </div>
-             
-            <button type="button" class="btn btn-info" id="saveInfo" ng-click="addBook(title,author,year)">
-              <span class="glyphicon glyphicon-floppy-disk" aria-hidden="false">Add</span>
-            </button>
-             
-          </div>
-     </div>
     
 </body>
 
