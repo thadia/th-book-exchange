@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" >
- 
+<html lang="en">
+
 <head>
-     <meta charset="UTF-8">
-     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-     <title>Book Exchange</title>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <title>Book Exchange</title>
 </head>
 
 <body ng-app="myApp" ng-cloak>
-<div class="container-fluid" ng-controller="mainController" >
- 
-   <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <div class="container-fluid" ng-controller="mainController">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">BookExchange</a>
-    </div>
+                    <a class="navbar-brand" href="#">BookExchange</a>
+                </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="#" ng-click="logout()">Log Out</a></li>
-       <!-- <li class="dropdown">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" ng-click="logout()">Log Out</a></li>
+                        <!-- <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li role="presentation" class="active"><a href="#">My Info: {{userName}}</a></li>
@@ -37,96 +37,102 @@
             <li role="presentation"><a href="#">Add Book</a></li>
           </ul>
         </li>  -->
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Book info">
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Book info">
+                        </div>
+                        <button type="submit" class="btn btn-default">Search</button>
+                    </form>
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+
+        </nav>
+
+
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">My Info {{userName}}</a></li>
+                <li><a data-toggle="tab" href="#menu1">My Books</a></li>
+                <li><a data-toggle="tab" href="#menu2">My Trades</a></li>
+                <li><a data-toggle="tab" href="#menu3">Add Book</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+                    <!--  <h3>My Info</h3> -->
+                    <br/>
+                    <div class="input-group">
+                        <label for="comment">Name</label>
+                        <input type="text" class="form-control" ng-model="fullName" placeholder={{fullName}} aria-describedby="sizing-addon2">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <label for="comment">City</label>
+                        <input type="text" class="form-control" ng-model="city" placeholder={{city}} aria-describedby="sizing-addon2">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <label for="comment">State</label>
+                        <input type="text" class="form-control" ng-model="state" placeholder={{state}} aria-describedby="sizing-addon2">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <button type="submit" class="btn btn-small btn-default btn-block" ng-click="saveInfo(uName,uCity,uState)">Save Info</button>
+                    </div>
+
+
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <!--  <h3>My Books</h3> -->
+                    <br/>
+                    <div>
+
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    </div>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <!--  <h3>My Trades</h3> -->
+                    <br/>
+                    <div>
+
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    </div>
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <!-- <h3>Add Book</h3> -->
+                    <br/>
+                     <br/>
+                    <div class="input-group">
+                        <label for="comment">Book Title</label>
+                        <input type="text" class="form-control" ng-model="bookTitle" placeholder={{bookTitle}} aria-describedby="sizing-addon2">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <label for="comment">Book Author</label>
+                        <input type="text" class="form-control" ng-model="bookAuthor" placeholder={{bookAuthor}} aria-describedby="sizing-addon2">
+                    </div>
+                    <br/>
+                    <div class="input-group">
+                        <button type="submit" class="btn btn-small btn-default btn-block" ng-click="addBook(bookTitle,bookAuthor)">Add Book</button>
+                    </div>    
+                </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
 
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-  
-</nav>
 
-     
-     <div class="container">
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">My Info {{userName}}</a></li>
-    <li><a data-toggle="tab" href="#menu1">My Books</a></li>
-    <li><a data-toggle="tab" href="#menu2">My Trades</a></li>
-    <li><a data-toggle="tab" href="#menu3">Add Book</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="home" class="tab-pane fade in active">
-     <!--  <h3>My Info</h3> -->
-      <br/>
-       <div class="input-group">
-               <label for="comment">Name</label>
-                <input type="text" class="form-control" ng-model="fullName" placeholder={{fullName}} aria-describedby="sizing-addon2">
-       </div> 
-       <br/>
-       <div class="input-group">          
-                <label for="comment">City</label>
-                <input type="text" class="form-control" ng-model="city" placeholder={{city}} aria-describedby="sizing-addon2">
-       </div>
-       <br/>
-       <div class="input-group">          
-                <label for="comment">State</label>
-                <input type="text" class="form-control" ng-model="state" placeholder={{state}} aria-describedby="sizing-addon2">
-       </div>
-      <br/>
-      <div class="input-group">          
-               <button type="submit" class="btn btn-small btn-default btn-block" ng-click="saveInfo(uName,uCity,uState)">Save Info</button>
-
-       </div>
-      
-      
-      
-
-      
-    </div>
-    <div id="menu1" class="tab-pane fade">
-     <!--  <h3>My Books</h3> -->
-      <br/>
-      <div>
-      
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      
-      </div>
-    </div>
-    <div id="menu2" class="tab-pane fade">
-     <!--  <h3>My Trades</h3> -->
-      <br/>
-     <div>
-      
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      
-      </div>
-    </div>
-    <div id="menu3" class="tab-pane fade">
-     <!-- <h3>My Book</h3> -->
-      <br/>
-      <div>
-      
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      
-      </div>
-    </div>
-  </div>
-</div>
-
-    
 </body>
 
-    <script src="/jquery/dist/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/angular/angular.min.js"></script>
-    <script src="/client.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/file.css">
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="/client.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/file.css">
 
 </html>
-
