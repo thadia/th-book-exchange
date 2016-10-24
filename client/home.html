@@ -64,20 +64,28 @@
      <!--  <h3>My Info</h3> -->
       <br/>
        <div class="input-group">
-                <div class="input-group-addon" id="sizing-addon1">Name</div>
+               <label for="comment">Name</label>
                 <input type="text" class="form-control" ng-model="fullName" placeholder={{fullName}} aria-describedby="sizing-addon2">
        </div> 
        <br/>
        <div class="input-group">          
-                <div class="input-group-addon" id="sizing-addon2">City</div>
+                <label for="comment">City</label>
                 <input type="text" class="form-control" ng-model="city" placeholder={{city}} aria-describedby="sizing-addon2">
        </div>
        <br/>
        <div class="input-group">          
-                <span class="input-group-addon" id="sizing-addon3">State</span>
+                <label for="comment">State</label>
                 <input type="text" class="form-control" ng-model="state" placeholder={{state}} aria-describedby="sizing-addon2">
        </div>
+      <br/>
+      <div class="input-group">          
+               <button type="submit" class="btn btn-small btn-default btn-block" ng-click="saveInfo(uName,uCity,uState)">Save Info</button>
+
+       </div>
       
+      
+      
+
       
     </div>
     <div id="menu1" class="tab-pane fade">
