@@ -96,7 +96,7 @@ UserSchema.statics.getAuthenticated = function(username, password, cb) {
     });
 };
 
- module.exports = mongoose.model('Books', BookSchema);
+// module.exports = mongoose.model('Books', BookSchema);
  module.exports = mongoose.model('User', UserSchema);
 
 //var Book = mongoose.model('Book',BookSchema);

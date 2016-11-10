@@ -12,6 +12,15 @@ myApp.controller('mainController', function($scope, $http, $window) {
               if(response.data !=  null){
                $scope.userName=response.data;
                console.log(response.data + ' Get My Username ' +  $scope.userName);
+                $http.get("/myInfo/"+$scope.userName)
+                    .then(function (response) {
+                        if(response.data !=  null){
+                         $scope.fullName=JSON.stringify(response.data[0].user_fullName);
+                         $scope.city=JSON.stringify(response.data[0].user_city);
+                         $scope.state=JSON.stringify(response.data[0].user_state);
+                         console.log(response.data + ' Get My Info ' + $scope.state);
+                      }
+            });
               }
     });
     
@@ -23,15 +32,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
               }
     });
     
-    $http.get("/myInfo/test777444@test.com") //+$scope.userName)
-            .then(function (response) {
-                if(response.data !=  null){
-                 $scope.fullName=JSON.stringify(response.data[0].user_fullName);
-                 $scope.city=JSON.stringify(response.data[0].user_city);
-                 $scope.state=JSON.stringify(response.data[0].user_state);
-                 console.log(response.data + ' Get My Info ' + $scope.state);
-              }
-    });
+   
     
     
     $scope.getAll = function(){
