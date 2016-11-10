@@ -7,17 +7,88 @@
 
 
 
-{
+db.books.insert(
+    {
     "book_title": "Book1",
     "book_author": "AuthorBook1",
     "book_year": "2001",
     "book_owner": "jmar777",
-    "book_requests": [{
+    "book_requests": [
+       {
         "user_name": "user1",
         "book_name": "book1"
-    }. {
+    },
+    {
         "user_name": "user1",
         "book_name": "book1"
-    }],
-    "__v": 0
-}
+    }]
+    
+})
+
+db.users.remove( {"_id": ObjectId("5823c7df76f200ebc8f1fb3e")});
+//password
+
+db.users.insert({
+	"user_name": "jmar777444@test.com",
+	"user_fullName": "Jmar K",
+	"user_city": "New York City",
+	"user_state": "NY",
+	"user_password": "$2a$10$WSV0NZZLxotLcShj8xm44uiiYYcsazodacWDfKG.CkQQ1L8Do78Me",
+	"user_books": [
+
+	{ 
+			"book_title": "Book1",
+			"book_author": "AuthorBook1",
+			"book_year": "2001",
+			"book_requests": [{
+					"user_name": "test777444@test.com",
+					
+				}
+			]
+
+	},
+
+	{ 
+			"book_title": "Book2",
+			"book_author": "AuthorBook2",
+			"book_year": "2003",
+			"book_requests": []
+
+	}
+
+	],
+	"__v": 0
+});
+
+
+
+db.users.insert({
+	"user_name": "test777444@test.com",
+	"user_fullName": "Test T",
+	"user_city": "Seattle",
+	"user_state": "WA",
+	"user_password": "$2a$10$WSV0NZZLxotLcShj8xm44uiiYYcsazodacWDfKG.CkQQ1L8Do78Me",
+	"user_books": [
+
+	{ 
+			"book_title": "Book13",
+			"book_author": "AuthorBook13",
+			"book_year": "20013",
+			"book_requests": [{
+					"user_name": "jmar777444@test.com",
+				}
+			]
+
+	},
+
+	{
+			"book_title": "Book15",
+			"book_author": "AuthorBook15",
+			"book_year": "2003",
+			"book_requests": []
+
+	}
+
+	],
+	"__v": 0
+});

@@ -86,14 +86,20 @@
 
 
                 </div>
-                <div id="menu1" class="tab-pane fade">
+                <div id="menu1" class="tab-pane fade" ng-repeat="book in myBooks" ng-model="book">
                     <!--  <h3>My Books</h3> -->
-                    <br/>
-                    <div>
-
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                    </div>
+                  <br>
+                  <ol class="list_books" ng-repeat="book in myBooks">
+                      <!-- [{{$index + 1}}] -->
+                      <li>Book Title:  {{book.book_title}} </li>
+                      <li>Book Author: {{book.book_author}} </li>
+                      <li>Book Year: {{book.book_year}} </li>
+                      <li class="list_requests" ng-repeat="requests in book.book_requests">
+                          <li>Book Requests: {{requests.user_name}}<li>
+                      </li>
+                  </ol>
+                  
+                 
                 </div>
                 <div id="menu2" class="tab-pane fade">
                     <!--  <h3>My Trades</h3> -->

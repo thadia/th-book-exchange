@@ -12,6 +12,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
               if(response.data !=  null){
                $scope.userName=response.data;
                console.log(response.data + ' Get My Username ' +  $scope.userName);
+               
                 $http.get("/myInfo/"+$scope.userName)
                     .then(function (response) {
                         if(response.data !=  null){
@@ -20,7 +21,16 @@ myApp.controller('mainController', function($scope, $http, $window) {
                          $scope.state=JSON.stringify(response.data[0].user_state);
                          console.log(response.data + ' Get My Info ' + $scope.state);
                       }
-            });
+                });
+              
+                $http.get("/books/"+$scope.userName)
+                    .then(function (response) {
+                        if(response.data !=  null){
+                        $scope.myBooks= response.data[0].user_books;
+                        console.log(response.data + ' Get My Books ' +  JSON.stringify($scope.myBooks));
+                }
+    });  
+              
               }
     });
     
@@ -30,10 +40,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
                  $scope.myBooks=response.data;
                  console.log(response.data + ' Get My Books ' +  $scope.myBooks);
               }
-    });
-    
-   
-    
+    });   
     
     $scope.getAll = function(){
           $http.get("/polls/all")
