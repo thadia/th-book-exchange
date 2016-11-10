@@ -91,12 +91,15 @@
                   <br>
                   <ol class="list_books" ng-repeat="book in myBooks">
                       <!-- [{{$index + 1}}] -->
-                      <li>Book Title:  {{book.book_title}} </li>
+                      <li><strong>Book Title:</strong>  {{book.book_title}} </li>
                       <li>Book Author: {{book.book_author}} </li>
                       <li>Book Year: {{book.book_year}} </li>
-                      <li class="list_requests" ng-repeat="requests in book.book_requests">
-                          <li>Book Requests: {{requests.user_name}}<li>
-                      </li>
+                      <ul class="list_requests" ng-repeat="requests in book.book_requests">
+                          <li>Book Requests: {{requests.user_name}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
+                          <button type="submit" class="btn btn-xs btn-danger" ng-click="approve(bookTitle,bookUser)">Reject</button></li>
+                         
+
+                      </ul>
                   </ol>
                   
                  

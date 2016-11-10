@@ -41,7 +41,7 @@ db.users.insert({
 			"book_author": "AuthorBook1",
 			"book_year": "2001",
 			"book_requests": [{
-					"user_name": "test777444@test.com",
+					"user_name": "test777444@test.com"
 					
 				}
 			]
@@ -75,7 +75,7 @@ db.users.insert({
 			"book_author": "AuthorBook13",
 			"book_year": "20013",
 			"book_requests": [{
-					"user_name": "jmar777444@test.com",
+					"user_name": "jmar777444@test.com"
 				}
 			]
 
