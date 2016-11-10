@@ -1,0 +1,23 @@
+{
+    "user_name": "jmar777",
+    "user_password": "Password",
+    "user_location": "Seattle, WA",
+    "__v": 0
+}
+
+
+
+{
+    "book_title": "Book1",
+    "book_author": "AuthorBook1",
+    "book_year": "2001",
+    "book_owner": "jmar777",
+    "book_requests": [{
+        "user_name": "user1",
+        "book_name": "book1"
+    }. {
+        "user_name": "user1",
+        "book_name": "book1"
+    }],
+    "__v": 0
+}

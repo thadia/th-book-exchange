@@ -7,9 +7,11 @@ var Schema = mongoose.Schema
     
     
 var BookSchema = new Schema({
-    book_name : { type: String, required: true, trim: true },
-    book_author : { type: String, required: true, trim: true }
-    
+    book_title : { type: String, required: true, trim: true },
+    book_author : { type: String, required: true, trim: true },
+    book_year : { type: String, required: true, trim: true },
+    book_owner : { type: String, required: true, trim: true },
+    book_requests : { type: Array, required: false, trim: true }    
 });
 
 var UserSchema = new Schema({
@@ -94,7 +96,7 @@ UserSchema.statics.getAuthenticated = function(username, password, cb) {
     });
 };
 
- module.exports = mongoose.model('Book', BookSchema);
+ module.exports = mongoose.model('Books', BookSchema);
  module.exports = mongoose.model('User', UserSchema);
 
 //var Book = mongoose.model('Book',BookSchema);
