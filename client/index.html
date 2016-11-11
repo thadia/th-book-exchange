@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" >
- 
+<html lang="en">
+
 <head>
-     <meta charset="UTF-8">
-     <title>Book Exchange</title>
+  <meta charset="UTF-8">
+  <title>Book Exchange</title>
 </head>
 
 <body ng-app="myApp" ng-cloak>
-<div class="container-fluid" ng-controller="mainController" >
- 
-   <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  <div class="container-fluid" ng-controller="mainController">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">BookExchange</a>
-    </div>
+          <a class="navbar-brand" href="#">BookExchange</a>
+        </div>
 
-  </div><!-- /.container-fluid -->
-</nav>
-  
-  <div class="container">
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
 
       <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label class="sr-only" for="inputEmail">Email address</label>
-        <input type="email" ng-model="userNme" autofocus=""  placeholder="Email address" class="form-control" id="inputEmail" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAALZJREFUOBFjYKAANDQ0rGWiQD9IqzgL0BQ3IKMXiB8AcSKQ/waIrYDsKUD8Fir2pKmpSf/fv3+zgPxfzMzMSbW1tbeBbAaQC+b+//9fB4h9gOwikCAQTAPyDYHYBciuBQkANfcB+WZAbPP37992kBgIUOoFBiZGRsYkIL4ExJvZ2NhAXmFgYmLKBPLPAfFuFhaWJpAYEBQC+SeA+BDQC5UQIQpJYFgdodQLLyh0w6j20RCgUggAAEREPpKMfaEsAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+        <input type="email" ng-model="userNme" autofocus="" placeholder="Email address" class="form-control" id="inputEmail" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAALZJREFUOBFjYKAANDQ0rGWiQD9IqzgL0BQ3IKMXiB8AcSKQ/waIrYDsKUD8Fir2pKmpSf/fv3+zgPxfzMzMSbW1tbeBbAaQC+b+//9fB4h9gOwikCAQTAPyDYHYBciuBQkANfcB+WZAbPP37992kBgIUOoFBiZGRsYkIL4ExJvZ2NhAXmFgYmLKBPLPAfFuFhaWJpAYEBQC+SeA+BDQC5UQIQpJYFgdodQLLyh0w6j20RCgUggAAEREPpKMfaEsAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
         <label class="sr-only" for="inputPassword">Password</label>
         <input type="password" ng-model="userPwd" placeholder="Password" class="form-control" id="inputPassword" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAALZJREFUOBFjYKAANDQ0rGWiQD9IqzgL0BQ3IKMXiB8AcSKQ/waIrYDsKUD8Fir2pKmpSf/fv3+zgPxfzMzMSbW1tbeBbAaQC+b+//9fB4h9gOwikCAQTAPyDYHYBciuBQkANfcB+WZAbPP37992kBgIUOoFBiZGRsYkIL4ExJvZ2NhAXmFgYmLKBPLPAfFuFhaWJpAYEBQC+SeA+BDQC5UQIQpJYFgdodQLLyh0w6j20RCgUggAAEREPpKMfaEsAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
         <div class="checkbox">
@@ -39,20 +40,19 @@
           </label>
         </div>
         <button type="submit" ng-hide="newUserCheckBox" class="btn btn-lg btn-success btn-block" ng-click="login(userNme,userPwd)">Sign in</button>
-         <button type="submit" ng-show="newUserCheckBox" class="btn btn-lg btn-info btn-block" ng-click="create(userNme,userPwd)">Create user</button>
+        <button type="submit" ng-show="newUserCheckBox" class="btn btn-lg btn-info btn-block" ng-click="create(userNme,userPwd)">Create user</button>
       </form>
 
-    </div>   
+    </div>
 
-    
+
 </body>
 
-    <script src="/jquery/dist/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/angular/angular.min.js"></script>
-    <script src="/client.js"></script>
-    <link rel="stylesheet" href="/css/file.css">
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="/angular/angular.min.js"></script>
+<script src="/client.js"></script>
+<link rel="stylesheet" href="/css/file.css">
 
 </html>
-

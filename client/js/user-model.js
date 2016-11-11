@@ -16,7 +16,7 @@ var BookSchema = new Schema({
 var UserSchema = new Schema({
     user_name : { type: String, required: true, index: { unique: true }  },
     user_password : { type: String, required: true },
-    user_fullname : { type: String, required: false, trim: true },
+    user_fullName : { type: String, required: false, trim: true },
     user_city : { type: String, required: false, trim: true },
     user_state : { type: String, required: false, trim: true },
     user_books: { type: Array, required: false, trim: true}

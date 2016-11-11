@@ -8,26 +8,25 @@
 </head>
 
 <body ng-app="myApp" ng-cloak>
-    <div class="container-fluid" ng-controller="mainController">
+<div class="container-fluid" ng-controller="mainController">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                <a class="navbar-brand" href="#">BookExchange</a>
+            </div>
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-                    <a class="navbar-brand" href="#">BookExchange</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#" ng-click="logout()">Log Out</a></li>
-                        <!-- <li class="dropdown">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" ng-click="logout()">Log Out</a></li>
+                    <!-- <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li role="presentation" class="active"><a href="#">My Info: {{userName}}</a></li>
@@ -37,128 +36,118 @@
             <li role="presentation"><a href="#">Add Book</a></li>
           </ul>
         </li>  -->
-                    </ul>
-                    <form class="navbar-form navbar-left">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Book info">
-                        </div>
-                        <button type="submit" class="btn btn-default">Search</button>
-                    </form>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Book info">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
 
-                </div>
-                <!-- /.navbar-collapse -->
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
 
-        </nav>
+    </nav>
 
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Available Books</a></li>
+            <li><a data-toggle="tab" href="#myInfo">My Info</a></li>
+            <li><a data-toggle="tab" href="#myBooks" ng-click="getMyBooks(userName)">My Books</a></li>
+            <li><a data-toggle="tab" href="#addBook">Add Book</a></li>
 
-        <div class="container">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#home">Available Books</a></li>
-                <li><a data-toggle="tab" href="#menu1">My Info</a></li>
-                <li><a data-toggle="tab" href="#menu2" ng-click="getMyBooks(userName)">My Books</a></li>
-                <li><a data-toggle="tab" href="#menu3">Add Book</a></li>
+        </ul>
 
-            </ul>
+        <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+                <!--  <h3>Available Books</h3> -->
+                <br/>
+                <div>
 
-            <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
-                    <!--  <h3>Available Books</h3> -->
-                    <br/>
-                    <div>
-
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                    </div>
-                </div>
-
-                <div id="menu1" class="tab-pane fade">
-                    <!--  <h3>My Info</h3> -->
-                    <br/>
-                    <div class="input-group">
-                        <label for="comment">Username</label>
-                        <input type="text" class="form-control" ng-model="userName" placeholder={ {userName}} aria-describedby="sizing-addon2">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                        <label for="comment">Name</label>
-                        <input type="text" class="form-control" ng-model="fullName" placeholder={{fullName}} aria-describedby="sizing-addon2">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                        <label for="comment">City</label>
-                        <input type="text" class="form-control" ng-model="city" placeholder={{city}} aria-describedby="sizing-addon2">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                        <label for="comment">State</label>
-                        <input type="text" class="form-control" ng-model="state" placeholder={{state}} aria-describedby="sizing-addon2">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                        <button type="submit" class="btn btn-small btn-default btn-block" ng-click="saveInfo(uName,uCity,uState)">Save Info</button>
-                    </div>
-
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
                 </div>
-                <div id="menu2" class="tab-pane fade" ng-model="book">
-                    <!--  <h3>My Books</h3> -->
-                    <ul style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
+            </div>
+            <div id="myInfo" class="tab-pane fade">  <!--  <h3>MyInfo</h3> -->
+                <br/>
+                <div class="input-group">
+                    <label for="comment">Username</label>
+                    <input type="text" class="form-control" ng-model="userName" placeholder={{userName}} aria-describedby="sizing-addon2">
+                </div>
+                <br/>
+                <div class="input-group">
+                    <label for="comment">Name</label>
+                    <input type="text" class="form-control" ng-model="fullName" placeholder={{fullName}} aria-describedby="sizing-addon2">
+                </div>
+                <br/>
+                <div class="input-group">
+                    <label for="comment">City</label>
+                    <input type="text" class="form-control" ng-model="city" placeholder={{city}} aria-describedby="sizing-addon2">
+                </div>
+                <br/>
+                <div class="input-group">
+                    <label for="comment">State</label>
+                    <input type="text" class="form-control" ng-model="state" placeholder={{state}} aria-describedby="sizing-addon2">
+                </div>
+                <br/>
+                <div class="input-group">
+                    <button type="submit" class="btn btn-small btn-default btn-block" ng-click="saveMyInfo(userName,fullName,city,state)">Save Info</button>
+                </div>
 
 
-                        <!-- [{{$index + 1}}] -->
-                        <br/>
-                        <img src="..." alt="...">
-
-                        <h3><button type="submit" class="btn btn-xs btn-danger" ng-click="delete(bookTitle)">X</button></li>
-{{book.book_title}}</h3>
-
-                        <li>Author: {{book.book_author}} </li>
-                        <li>Year: {{book.book_year}} </li>
-                        <ul class="list_requests" ng-repeat="requests in book.book_requests">
-                            <li>Book Requests: {{requests.user_name}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
-                                <button type="submit" class="btn btn-xs btn-danger" ng-click="reject(bookTitle,bookUser)">Reject</button></li>
-
-
-                        </ul>
-                    </ul>
+            </div>
+            <div id="myBooks" class="tab-pane fade" ng-model="book">
+                <!--  <h3>My Books</h3> -->
+                <ul style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
+                    <!-- [{{$index + 1}}] -->
+                    <img src="..." alt="...">
+                    <h3><button type="submit" class="btn btn-xs btn-danger" ng-click="delete(bookTitle)">X</button></li>
+                        {{book.book_title}}</h3>
+                    <li>Author: {{book.book_author}} </li>
+                    <li>Year: {{book.book_year}} </li>
+                    <ul class="list_requests" ng-repeat="requests in book.book_requests">
+                        <li>Book Requests: {{requests.user_name}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
+                            <button type="submit" class="btn btn-xs btn-danger" ng-click="reject(bookTitle,bookUser)">Reject</button></li>
 
 
                     </ul>
+                </ul>
+
+
+                </ul>
 
 
 
 
+            </div>
+            <div id="addBook" class="tab-pane fade">
+                <!-- <h3>Add Book</h3> -->
+                <br/>
+                <div class="input-group">
+                    <label for="comment">Book Title</label>
+                    <input type="text" class="form-control" ng-model="bookTitle" placeholder={{bookTitle}} aria-describedby="sizing-addon2">
                 </div>
-                <div id="menu3" class="tab-pane fade">
-                    <!-- <h3>Add Book</h3> -->
-                    <br/>
-                    <div class="input-group">
-                        <label for="comment">Book Title</label>
-                        <input type="text" class="form-control" ng-model="bookTitle" placeholder={{bookTitle}} aria-describedby="sizing-addon2">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                        <label for="comment">Book Author</label>
-                        <input type="text" class="form-control" ng-model="bookAuthor" placeholder={{bookAuthor}} aria-describedby="sizing-addon2">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                        <label for="comment">Book Year</label>
-                        <input type="text" class="form-control" ng-model="bookYear" placeholder={{bookYear}} aria-describedby="sizing-addon2">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                        <button type="submit" class="btn btn-small btn-default btn-block" ng-click="addBook(userName,bookTitle,bookAuthor,bookYear)">Add Book</button>
-                    </div>
-
-
+                <br/>
+                <div class="input-group">
+                    <label for="comment">Book Author</label>
+                    <input type="text" class="form-control" ng-model="bookAuthor" placeholder={{bookAuthor}} aria-describedby="sizing-addon2">
                 </div>
+                <br/>
+                <div class="input-group">
+                    <label for="comment">Book Year</label>
+                    <input type="text" class="form-control" ng-model="bookYear" placeholder={{bookYear}} aria-describedby="sizing-addon2">
+                </div>
+                <br/>
+                <div class="input-group">
+                    <button type="submit" class="btn btn-small btn-default btn-block" ng-click="addBook(userName,bookTitle,bookAuthor,bookYear)">Add Book</button>
+                </div>
+
+
             </div>
         </div>
-
-
+    </div>
 </body>
 
 <script src="/jquery/dist/jquery.min.js"></script>
