@@ -83,7 +83,19 @@ myApp.controller('mainController', function($scope, $http, $window) {
                $window.location.href = '/home/true';
               }
         });
-     } 
+     }
+     
+      
+     $scope.addBook = function(userName,bookTitle,bookAuthor,bookYear){
+          $http.get("/books/"+userName+"/add/"+bookTitle+"/"+bookAuthor+"/"+bookYear)
+            .then(function (response) {
+              if(response.data == 'true'){
+               console.log(response.data + 'BOOK WAS ADDED.');
+               $window.location.href = '/home/true';
+              }
+        });
+     }
+
      
      $scope.logout = function(){
           $http.get("/logout")
