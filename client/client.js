@@ -91,9 +91,21 @@ myApp.controller('mainController', function($scope, $http, $window) {
             .then(function (response) {
               if(response.data == 'true'){
                console.log(response.data + 'BOOK WAS ADDED.');
-               $window.location.href = '/home/true';
-              }
-        });
+              }  
+        });   
+        
+     }
+
+     
+     $scope.getMyBooks = function(userName){
+          $http.get("/books/"+$scope.userName)
+                    .then(function (response) {
+                        if(response.data !=  null){
+                        $scope.myBooks= response.data[0].user_books;
+                        console.log(response.data + ' Get My Books ' +  JSON.stringify($scope.myBooks));
+                }
+    });  
+        
      }
 
      

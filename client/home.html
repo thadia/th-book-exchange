@@ -57,13 +57,13 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Available Books</a></li>
                 <li><a data-toggle="tab" href="#menu1">My Info</a></li>
-                <li><a data-toggle="tab" href="#menu2">My Books</a></li>
+                <li><a data-toggle="tab" href="#menu2" ng-click="getMyBooks(userName)">My Books</a></li>
                 <li><a data-toggle="tab" href="#menu3">Add Book</a></li>
-                
+
             </ul>
 
             <div class="tab-content">
-                            <div id="home" class="tab-pane fade in active">
+                <div id="home" class="tab-pane fade in active">
                     <!--  <h3>Available Books</h3> -->
                     <br/>
                     <div>
@@ -75,9 +75,10 @@
 
                 <div id="menu1" class="tab-pane fade">
                     <!--  <h3>My Info</h3> -->
-                    <br/>  <div class="input-group">
+                    <br/>
+                    <div class="input-group">
                         <label for="comment">Username</label>
-                        <input type="text" class="form-control" ng-model="userName" placeholder= {{userName}} aria-describedby="sizing-addon2">
+                        <input type="text" class="form-control" ng-model="userName" placeholder={ {userName}} aria-describedby="sizing-addon2">
                     </div>
                     <br/>
                     <div class="input-group">
@@ -103,34 +104,34 @@
                 </div>
                 <div id="menu2" class="tab-pane fade" ng-model="book">
                     <!--  <h3>My Books</h3> -->
-                  <ul  style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
-                     
-                 
-                      <!-- [{{$index + 1}}] -->
-                      <img src="..." alt="...">
+                    <ul style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
 
-                      <h3>{{book.book_title}}</h3>
-                      <li>Author: {{book.book_author}} </li>
-                      <li>Year: {{book.book_year}} </li>
-                      <ul class="list_requests" ng-repeat="requests in book.book_requests">
-                          <li>Book Requests: {{requests.user_name}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
-                          <button type="submit" class="btn btn-xs btn-danger" ng-click="approve(bookTitle,bookUser)">Reject</button></li>
-                         
 
-                      </ul>
-                  </ul>
-                 
-              
-                  </ul>
-                
-                
-                
-                
+                        <!-- [{{$index + 1}}] -->
+                        <img src="..." alt="...">
+
+                        <h3>{{book.book_title}}</h3>
+                        <li>Author: {{book.book_author}} </li>
+                        <li>Year: {{book.book_year}} </li>
+                        <ul class="list_requests" ng-repeat="requests in book.book_requests">
+                            <li>Book Requests: {{requests.user_name}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
+                                <button type="submit" class="btn btn-xs btn-danger" ng-click="approve(bookTitle,bookUser)">Reject</button></li>
+
+
+                        </ul>
+                    </ul>
+
+
+                    </ul>
+
+
+
+
                 </div>
                 <div id="menu3" class="tab-pane fade">
                     <!-- <h3>Add Book</h3> -->
                     <br/>
-                     <br/>
+                    <br/>
                     <div class="input-group">
                         <label for="comment">Book Title</label>
                         <input type="text" class="form-control" ng-model="bookTitle" placeholder={{bookTitle}} aria-describedby="sizing-addon2">
@@ -149,8 +150,8 @@
                     <div class="input-group">
                         <button type="submit" class="btn btn-small btn-default btn-block" ng-click="addBook(userName,bookTitle,bookAuthor,bookYear)">Add Book</button>
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
