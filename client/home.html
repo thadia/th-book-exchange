@@ -86,23 +86,29 @@
 
 
                 </div>
-                <div id="menu1" class="tab-pane fade" ng-repeat="book in myBooks" ng-model="book">
+                <div id="menu1" class="tab-pane fade"ng-model="book">
                     <!--  <h3>My Books</h3> -->
-                  <br>
-                  <ol class="list_books" ng-repeat="book in myBooks">
+ 
+                  <ul  style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
+                     <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">                 
+                 
                       <!-- [{{$index + 1}}] -->
-                      <li><strong>Book Title:</strong>  {{book.book_title}} </li>
-                      <li>Book Author: {{book.book_author}} </li>
-                      <li>Book Year: {{book.book_year}} </li>
+                      <img src="..." alt="...">
+
+                      <h3>{{book.book_title}}</h3>
+                      <li>Author: {{book.book_author}} </li>
+                      <li>Year: {{book.book_year}} </li>
                       <ul class="list_requests" ng-repeat="requests in book.book_requests">
                           <li>Book Requests: {{requests.user_name}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
                           <button type="submit" class="btn btn-xs btn-danger" ng-click="approve(bookTitle,bookUser)">Reject</button></li>
                          
 
                       </ul>
-                  </ol>
-                  
+                  </ul>
                  
+                  </div>
+                  </div>
                 </div>
                 <div id="menu2" class="tab-pane fade">
                     <!--  <h3>My Trades</h3> -->
