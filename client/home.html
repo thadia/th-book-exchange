@@ -111,12 +111,14 @@
                         <br/>
                         <img src="..." alt="...">
 
-                        <h3>{{book.book_title}}</h3>
+                        <h3><button type="submit" class="btn btn-xs btn-danger" ng-click="delete(bookTitle)">X</button></li>
+{{book.book_title}}</h3>
+
                         <li>Author: {{book.book_author}} </li>
                         <li>Year: {{book.book_year}} </li>
                         <ul class="list_requests" ng-repeat="requests in book.book_requests">
                             <li>Book Requests: {{requests.user_name}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
-                                <button type="submit" class="btn btn-xs btn-danger" ng-click="approve(bookTitle,bookUser)">Reject</button></li>
+                                <button type="submit" class="btn btn-xs btn-danger" ng-click="reject(bookTitle,bookUser)">Reject</button></li>
 
 
                         </ul>
