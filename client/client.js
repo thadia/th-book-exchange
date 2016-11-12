@@ -96,8 +96,16 @@ myApp.controller('mainController', function($scope, $http, $window) {
                 if (response.data == 'true') {
                     $scope.userName = userName;
                     console.log(response.data + 'LOG HERE');
-                    $window.location.href = '/home/true';
+                   
                 }
+                 $http.get("/username")
+            .then(function(response) {
+                if (response.data != null) {
+                    $scope.userName = response.data;
+                    console.log(response.data + ' Get My Username');
+                     $window.location.href = '/home/true';
+                }
+            });
             });
     }
     //READ
