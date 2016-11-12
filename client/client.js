@@ -115,7 +115,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
             .then(function(response) {
                 if (response.data != null) {
                     $scope.myBooks = response.data[0].user_books;
-                    console.log(response.data + ' Get My Books ' + JSON.stringify($scope.myBooks));
+                    console.log('--- Get My Books ' + JSON.stringify($scope.myBooks));
                 }
             });
 
@@ -126,7 +126,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
             .then(function(response) {
                 if (response.data != null) {
                     $scope.availableBooks = response.data[0];
-                    console.log(response.data + ' Get Available Books ' + JSON.stringify($scope.availableBooks));
+                    console.log('--- Get Available Books ' + JSON.stringify($scope.availableBooks));
                 }
             });
 
@@ -152,7 +152,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
         $http.get("/myInfo/" + userName + "/save/" + fullName + "/" + city + "/" + state)
             .then(function(response) {
                 if (response.data == 'true') {
-                    console.log(response.data + 'INFO DATA WAS SAVED.');
+                    console.log('--- INFO DATA WAS SAVED.');
                 }
             });
 
@@ -163,7 +163,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
             .then(function(response) {
                 if (response.data != null) {
                     $scope.myBooks = response.data[0].user_books;
-                    console.log(response.data + ' Get My Books After Delete ' + JSON.stringify($scope.myBooks));
+                    console.log('--- Get My Books After Delete ' + JSON.stringify($scope.myBooks));
                 }
             });
 
