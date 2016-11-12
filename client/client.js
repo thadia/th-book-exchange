@@ -125,7 +125,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
         $http.get("/books_except/" + $scope.userName)
             .then(function(response) {
                 if (response.data != null) {
-                    $scope.availableBooks = response.data[0];
+                    $scope.availableBooks = response.data;
                     console.log('--- Get Available Books ' + JSON.stringify($scope.availableBooks));
                 }
             });
