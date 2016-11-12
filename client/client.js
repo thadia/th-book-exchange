@@ -26,17 +26,17 @@ myApp.controller('mainController', function($scope, $http, $window) {
                             console.log(response.data + ' Get My Books ' + JSON.stringify($scope.myBooks));
                         }
                     });
-
+                
+                $http.get("/books_except/" + $scope.userName)
+                    .then(function(response) {
+                        if (response.data != null) {
+                            $scope.availableBooks = response.data;
+                            console.log('--- Get Available Books ' + JSON.stringify($scope.availableBooks));
+                }
+            });
             }
         });
 
-    $http.get("/books/" + $scope.userName)
-        .then(function(response) {
-            if (response.data != null) {
-                $scope.myBooks = response.data;
-                console.log(response.data + ' Get My Books ' + $scope.myBooks);
-            }
-        });
 
     $scope.login = function(userName, userPwd) {
         $http.get("/login/" + userName + "/" + userPwd)
