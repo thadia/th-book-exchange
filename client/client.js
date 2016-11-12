@@ -120,6 +120,17 @@ myApp.controller('mainController', function($scope, $http, $window) {
             });
 
     }
+    
+    $scope.getAvailableBooks = function(userName) {
+        $http.get("/books_except/" + $scope.userName)
+            .then(function(response) {
+                if (response.data != null) {
+                    $scope.availableBooks = response.data[0];
+                    console.log(response.data + ' Get Available Books ' + JSON.stringify($scope.availableBooks));
+                }
+            });
+
+    }
     $scope.getAll = function() {
         $http.get("/data/all")
             .then(function(response) {
