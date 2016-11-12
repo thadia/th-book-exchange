@@ -147,5 +147,15 @@ myApp.controller('mainController', function($scope, $http, $window) {
 
     }
     //DELETE
+    $scope.deleteMyBook = function(userName,bookTitle,bookAuthor,bookYear) {
+        $http.get("/books/" + userName + "/remove/" + bookTitle + "/" + bookAuthor + "/" + bookYear)
+            .then(function(response) {
+                if (response.data != null) {
+                    $scope.myBooks = response.data[0].user_books;
+                    console.log(response.data + ' Get My Books After Delete ' + JSON.stringify($scope.myBooks));
+                }
+            });
+
+    }
 
 });

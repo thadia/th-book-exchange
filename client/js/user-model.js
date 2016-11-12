@@ -7,14 +7,14 @@ var Schema = mongoose.Schema
     
     
 var BookSchema = new Schema({
-    book_title : { type: String, required: true, trim: true },
+    book_title : { type: String, required: true, trim: true, unique: true, index: { unique: true }  },
     book_author : { type: String, required: true, trim: true },
     book_year : { type: String, required: true, trim: true },
     book_requests : { type: Array, required: false, trim: true }    
 });
 
 var UserSchema = new Schema({
-    user_name : { type: String, required: true, index: { unique: true }  },
+    user_name : { type: String, required: true, unique: true, index: { unique: true } },
     user_password : { type: String, required: true },
     user_fullName : { type: String, required: false, trim: true },
     user_city : { type: String, required: false, trim: true },
