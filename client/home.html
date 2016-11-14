@@ -61,12 +61,23 @@
         </ul>
 
         <div class="tab-content">
-            <div id="home" class="tab-pane fade in active" ng-model:"availableBooks">
-                <!--  <h3>Available Books</h3> -->
-                <br/>
+            <div id="home" class="tab-pane fade in active" ng-model:"availableBooks"> <!--  <h3>Available Books</h3> -->
+                 
                 <div>
+                    
+                    
+                     <ul style="list-style: none;" class="list_users" ng-repeat="user in availableBooks">
+                    <!-- [{{$index + 1}}] -->
+                 <!--     <img src="..." alt="...">-->
+                    <li><h4 ng-cloak>Location: {{user.user_city}},{{user.user_state}}</h4></li>
+                    <li>Owner: {{user.user_name}}</li>
+                    <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
+                    <li><h4>Book: {{user_book.book_title}}<h4></li>
+                    <li>Author: {{user_book.book_author}} </li>
+                    <li>Year: {{user_book.book_year}} </li>
+                </ul>
 
-                    <p>{{availableBooks}}</p>
+                  <!--   <p>{{availableBooks}}</p>  -->
 
                 </div>
             </div>
@@ -98,13 +109,12 @@
 
 
             </div>
-            <div id="myBooks" class="tab-pane fade" ng-model="book">
-                <!--  <h3>My Books</h3> -->
+            <div id="myBooks" class="tab-pane fade" ng-model="book">  <!--  <h3>My Books</h3> -->
                 <ul style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
                     <!-- [{{$index + 1}}] -->
                  <!--     <img src="..." alt="...">-->
-                    <h3><button type="submit" class="btn btn-xs btn-danger" ng-click="deleteMyBook(userName,book.book_title,book.book_author,book.book_year)">X</button></li>
-                        {{book.book_title}}</h3>
+                    <li><h4><button type="submit" class="btn btn-xs btn-danger" ng-click="deleteMyBook(userName,book.book_title,book.book_author,book.book_year)">X</button>
+                        {{book.book_title}}</h4></li>
                     <li>Author: {{book.book_author}} </li>
                     <li>Year: {{book.book_year}} </li>
                     <ul class="list_requests" ng-repeat="requests in book.book_requests">
