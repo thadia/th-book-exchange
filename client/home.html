@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  
     <title>Book Exchange</title>
 </head>
 
@@ -63,24 +66,47 @@
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active" ng-model:"availableBooks"> <!--  <h3>Available Books</h3> -->
                  
-                <div>
+                    </br>
+                     <div class="list_users" ng-repeat="user in availableBooks">
+                         <!-- [{{$index + 1}}] -->
+                         <!--     <img src="..." alt="...">-->
+                        
+                         <button ng-show="user.user_city.length && user.user_books.length" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{ $index + 1 }}">Location: {{user.user_city}},{{user.user_state}}</button>
+                         
+                         <div id="demo{{ $index + 1 }}" class="collapse panel-collapse">
+                             <div ng-show="user.user_books.length">Owner: {{user.user_name}}</div>
+                             <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
+                                 <li><h4>{{user_book.book_title}} <button type="submit" class="btn btn-xs btn-success" ng-click="request(bookTitle,bookUser)">Request</button>
+                                     <h4>
+                                 </li>
+                                 <li>Author: {{user_book.book_author}} </li>
+                                 <li>Year: {{user_book.book_year}} </li>
+                             </ul>
+                         </div>
+                     
+                     </div>
+                     
+                     
+                      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demog">TEST</button>
+                         
+                         <div id="demog" class="collapse panel-collapse">
+                             TEST
+                         </div>
+          
+          <!--     
                     
-                    
-                     <ul style="list-style: none;" class="list_users" ng-repeat="user in availableBooks">
-                    <!-- [{{$index + 1}}] -->
-                 <!--     <img src="..." alt="...">-->
                     <li ng-show="user.user_city.length && user.user_books.length"><h4>Location: {{user.user_city}},{{user.user_state}}</h4></li>
                     <li ng-show="user.user_books.length">Owner: {{user.user_name}}</li>
                     <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
-                    <li><h4>Book: {{user_book.book_title}}<h4></li>
-                    <li>Author: {{user_book.book_author}} </li>
-                    <li>Year: {{user_book.book_year}} </li>
-                </ul>
-
-                  <!--   <p>{{availableBooks}}</p>  -->
-
-                </div>
+                        <li><h4>{{user_book.book_title}} <button type="submit" class="btn btn-xs btn-success" ng-click="request(bookTitle,bookUser)">Request</button><h4></li>
+                        <li>Author: {{user_book.book_author}} </li>
+                        <li>Year: {{user_book.book_year}} </li>
+                    </ul> 
+                    
+----------------------------------------------
+                    <p>{{availableBooks}}</p>  -->
             </div>
+            
             <div id="myInfo" class="tab-pane fade">  <!--  <h3>MyInfo</h3> -->
                 <br/>
                 <div class="input-group">
@@ -158,13 +184,14 @@
             </div>
         </div>
     </div>
+     </div>
+    
 </body>
 
-<script src="/jquery/dist/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/angular/angular.min.js"></script>
-<script src="/client.js"></script>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/file.css">
+  
+    <script src="/angular/angular.min.js"></script>
+    <script src="/client.js"></script>
+    <link rel="stylesheet" href="/css/file.css">
+
 
 </html>
