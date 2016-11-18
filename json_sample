@@ -92,3 +92,6 @@ db.users.insert({
 	],
 	"__v": 0
 });
+
+
+ db.users.aggregate( {$group : { _id : "$user_state", availablebooks: { $push: "$$ROOT" }  } }).pretty();

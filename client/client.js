@@ -27,7 +27,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
                         }
                     });
                 
-                $http.get("/books_except/" + $scope.userName)
+                $http.get("/availablebooks/" + $scope.userName)
                     .then(function(response) {
                         if (response.data != null) {
                             $scope.availableBooks = response.data;
@@ -130,7 +130,7 @@ myApp.controller('mainController', function($scope, $http, $window) {
     }
     
     $scope.getAvailableBooks = function(userName) {
-        $http.get("/books_except/" + $scope.userName)
+        $http.get("/availablebooks/" + $scope.userName)
             .then(function(response) {
                 if (response.data != null) {
                     $scope.availableBooks = response.data;

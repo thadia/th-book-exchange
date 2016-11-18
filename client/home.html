@@ -67,31 +67,29 @@
             <div id="home" class="tab-pane fade in active" ng-model:"availableBooks"> <!--  <h3>Available Books</h3> -->
                  
                     </br>
-                     <div class="list_users" ng-repeat="user in availableBooks">
+                    
+                    
+                     <div class="list_users" ng-repeat="state in availableBooks">
                          <!-- [{{$index + 1}}] -->
                          <!--     <img src="..." alt="...">-->
                         
-                         <button ng-show="user.user_city.length && user.user_books.length" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{ $index + 1 }}">Location: {{user.user_city}},{{user.user_state}}</button>
-                         
-                         <div id="demo{{ $index + 1 }}" class="collapse panel-collapse">
-                             <div ng-show="user.user_books.length">Owner: {{user.user_name}}</div>
+                         <ul style="list-style: none;" >
+                             <button ng-show="state._id != null" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{ $index + 1 }}">State: {{state._id}}</button>
+                         </ul>
+                         <div id="demo{{ $index + 1 }}" class="collapse panel-collapse" >
+                             <ul ng-repeat="user in state.availableusers" >Owner: {{user.user_name}}</u>
                              <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
-                                 <li><h4>{{user_book.book_title}} <button type="submit" class="btn btn-xs btn-success" ng-click="request(bookTitle,bookUser)">Request</button>
+                                 <li><h4>{{user_book.book_title}} 
+                                         <button type="submit" class="btn btn-xs btn-success" ng-click="request(bookTitle,bookUser)">Request</button>
                                      <h4>
                                  </li>
                                  <li>Author: {{user_book.book_author}} </li>
                                  <li>Year: {{user_book.book_year}} </li>
                              </ul>
-                         </div>
-                     
-                     </div>
-                     
-                     
-                      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demog">TEST</button>
-                         
-                         <div id="demog" class="collapse panel-collapse">
-                             TEST
-                         </div>
+                         </div>                     
+                    </div>
+                    
+         
           
           <!--     
                     
@@ -103,7 +101,7 @@
                         <li>Year: {{user_book.book_year}} </li>
                     </ul> 
                     
-----------------------------------------------
+----------------------------------------------   
                     <p>{{availableBooks}}</p>  -->
             </div>
             
