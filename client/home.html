@@ -79,9 +79,8 @@
                          <div id="demo{{ $index + 1 }}" class="collapse panel-collapse" >
                              
                              
-                             <ul ng-repeat="user in state.availableusers">
-                                 <button ng-show="state._id != null" type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}"> Owner: {{user.user_name}}</button>
-                                </u>
+                             <ul style="list-style: none;" ng-repeat="user in state.availableusers">
+                                 <button ng-show="state._id != null" type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}">{{user.user_city}} - {{user.user_name}}</button>
                                      <div id="{{user._id}}{{ $index + 1}}" class="collapse panel-collapse" >
                                      <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
                                          <li><h4>{{user_book.book_title}} 
@@ -92,6 +91,8 @@
                                          <li>Year: {{user_book.book_year}} </li>
                                      </ul>
                                      </div>
+                                     
+                                </ul>     
                          </div>                     
                     </div>
                     
