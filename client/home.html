@@ -80,7 +80,7 @@
                              
                              
                              <ul ng-repeat="user in state.availableusers">
-                                 <button ng-show="state._id != null" type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}"> Owner: {{user.user_name}}</button>
+                                 <button ng-show="state._id != null" type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}"> Owner: {{user.user_name}}</button>
                                 </u>
                                      <div id="{{user._id}}{{ $index + 1}}" class="collapse panel-collapse" >
                                      <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
