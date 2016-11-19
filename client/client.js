@@ -165,6 +165,16 @@ myApp.controller('mainController', function($scope, $http, $window) {
             });
 
     }
+    $scope.requestBook = function(userName,ownerName, bookid) {
+        $http.get("/requestbook/" + userName + "/" + ownerName+ "/"+ bookid)
+            .then(function(response) {
+                if (response.data == 'true') {
+                    console.log('--- INFO DATA WAS SAVED.');
+                }
+            });
+
+    }
+    //requestBook(userName,bookTitle,bookUser)
     //DELETE
     $scope.deleteMyBook = function(userName,bookTitle,bookAuthor,bookYear) {
         $http.get("/books/" + userName + "/remove/" + bookTitle + "/" + bookAuthor + "/" + bookYear)

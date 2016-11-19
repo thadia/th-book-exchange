@@ -84,7 +84,7 @@
                                      <div id="{{user._id}}{{ $index + 1}}" class="collapse panel-collapse" >
                                      <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
                                          <li><h4>{{user_book.book_title}} 
-                                                 <button type="submit" class="btn btn-xs btn-success" ng-click="request(bookTitle,bookUser)">Request</button>
+                                                 <button type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book._id)">Request</button>
                                              <h4>
                                          </li>
                                          <li>Author: {{user_book.book_author}} </li>

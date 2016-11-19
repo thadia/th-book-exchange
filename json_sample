@@ -95,3 +95,5 @@ db.users.insert({
 
 
  db.users.aggregate( {$group : { _id : "$user_state", availablebooks: { $push: "$$ROOT" }  } }).pretty();
+ 
+  db.users.find({"user_books._id": ObjectId("582f8966d181f6941b6b9422")},{"user_books.$": 1}).pretty()
