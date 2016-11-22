@@ -100,10 +100,15 @@ db.users.find({ "user_name": "t1@t.com","user_books._id": ObjectId("582f8966d181
   
 db.users.find({ "user_name": "t1@t.com","user_books.book_title": "Booo"}).pretty()
   
-db.users.update({ "user_name": "t1@t.com","user_books._id": ObjectId("582f8966d181f6941b6b9422")},{"user_books.$": 1},{"$push": {"user_books.0.book_requests": "t2@t.com" }) 
+db.users.update({ "user_name": "t1@t.com","user_books._id": ObjectId("582f8966d181f6941b6b9422")},{"user_books.$": 1},{"$pop": {"user_books.0.book_requests"}) 
    
 db.users.update({ "user_name": "t1@t.com","user_books._id": ObjectId("582f8966d181f6941b6b9422")},{ $push: { "user_books.0.book_requests": "t2@t.com"} }) 
 
 curl -get http://localhost:8080/requestbook/jmar777444@test.com/t1@t.com/582f8966d181f6941b6b9422/Booo    
 	
 https://th-book-exchange-thadia.c9users.io/requestbook/jmar777444@test.com/t1@t.com/582f8966d181f6941b6b9422/Booo
+
+
+db.users.update({ "user_name": "t1@t.com","user_books.book_title": "Booo"},  { $pull: { "user_books.0.book_requests": "jmar777444@test.com"}  }) 
+
+curl -get http://localhost:8080/availablebooks/jmar777444@test.com

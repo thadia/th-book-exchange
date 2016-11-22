@@ -78,13 +78,12 @@
                          </ul>
                          <div id="demo{{ $index + 1 }}" class="collapse panel-collapse" >
                              
-                             
                              <ul style="list-style: none;" ng-repeat="user in state.availableusers">
-                                 <button ng-show="state._id != null" type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}">{{user.user_city}} - {{user.user_name}}</button>
+                                 <button ng-show="state._id != null && user.user_books[0] != null" type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}">{{user.user_city}} - {{user.user_name}}</button>
                                      <div id="{{user._id}}{{ $index + 1}}" class="collapse panel-collapse" >
                                      <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
                                          <li><h4>{{user_book.book_title}} 
-                                                 <button type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book._id,user_book.book_title)">Request</button>
+                                                 <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book._id,user_book.book_title)">Request</button>
                                              <h4>
                                          </li>
                                          <li>Author: {{user_book.book_author}} </li>
@@ -95,11 +94,8 @@
                                 </ul>     
                          </div>                     
                     </div>
-                    
-         
           
           <!--     
-                    
                     <li ng-show="user.user_city.length && user.user_books.length"><h4>Location: {{user.user_city}},{{user.user_state}}</h4></li>
                     <li ng-show="user.user_books.length">Owner: {{user.user_name}}</li>
                     <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
@@ -148,9 +144,10 @@
                         {{book.book_title}}</h4></li>
                     <li>Author: {{book.book_author}} </li>
                     <li>Year: {{book.book_year}} </li>
+                    <li>Book Requests:</li>
                     <ul class="list_requests" ng-repeat="request in book.book_requests">
-                        <li>Book Requests: {{request}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
-                            <button type="submit" class="btn btn-xs btn-danger" ng-click="reject(bookTitle,bookUser)">Reject</button></li>
+                        <li> {{request}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">yes</button>
+                            <button type="submit" class="btn btn-xs btn-danger" ng-click="reject(bookTitle,bookUser)">no</button></li>
 
 
                     </ul>
