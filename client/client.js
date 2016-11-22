@@ -165,8 +165,8 @@ myApp.controller('mainController', function($scope, $http, $window) {
             });
 
     }
-    $scope.requestBook = function(userName,ownerName, bookid) {
-        $http.get("/requestbook/" + userName + "/" + ownerName+ "/"+ bookid)
+    $scope.requestBook = function(userName,ownerName, bookid,bookTitle) {
+        $http.get("/requestbook/" + userName + "/" + ownerName+ "/"+ bookid + "/" + bookTitle)
             .then(function(response) {
                 if (response.data == 'true') {
                     console.log('--- INFO DATA WAS SAVED.');
