@@ -148,8 +148,8 @@
                         {{book.book_title}}</h4></li>
                     <li>Author: {{book.book_author}} </li>
                     <li>Year: {{book.book_year}} </li>
-                    <ul class="list_requests" ng-repeat="requests in book.book_requests">
-                        <li>Book Requests: {{requests.user_name}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
+                    <ul class="list_requests" ng-repeat="request in book.book_requests">
+                        <li>Book Requests: {{request}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">Accept</button>
                             <button type="submit" class="btn btn-xs btn-danger" ng-click="reject(bookTitle,bookUser)">Reject</button></li>
 
 
