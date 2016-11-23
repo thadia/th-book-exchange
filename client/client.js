@@ -170,15 +170,16 @@ myApp.controller('mainController', function($scope, $http, $window) {
             .then(function(response) {
                 if (response.data == 'true') {
                     console.log('--- INFO DATA WAS SAVED.');
-                    $http.get("/availablebooks/" + $scope.userName)
-                        .then(function(response) {
-                            if (response.data != null) {
-                                $scope.availableBooks = response.data;
-                                console.log('--- Get Available Books ' + JSON.stringify($scope.availableBooks));
-                            }
-                        });
                 }
             });
+        
+        $http.get("/availablebooks/" + $scope.userName)
+                    .then(function(response) {
+                        if (response.data != null) {
+                            $scope.availableBooks = response.data;
+                            console.log('--- Get Available Books ' + JSON.stringify($scope.availableBooks));
+                }
+        });
 
     }
     //requestBook(userName,bookTitle,bookUser)

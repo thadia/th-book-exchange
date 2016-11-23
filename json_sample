@@ -25,7 +25,7 @@ db.books.insert(
     
 })
 
-db.users.remove( {"_id": ObjectId("5823c7df76f200ebc8f1fb3e")});
+db.users.remove( {"_id": ObjectId("58267332a374cb252032c729")});
 //password
 
 db.users.insert({
@@ -112,3 +112,22 @@ https://th-book-exchange-thadia.c9users.io/requestbook/jmar777444@test.com/t1@t.
 db.users.update({ "user_name": "t1@t.com","user_books.book_title": "Booo"},  { $pull: { "user_books.0.book_requests": "jmar777444@test.com"}  }) 
 
 curl -get http://localhost:8080/availablebooks/jmar777444@test.com
+
+db.users.find({ "user_name": "jmar777444@test.com"}).pretty()
+
+db.users.find({ "user_name": "test777444@test.com", "user_books.book_title": "Book4"}).pretty()
+
+
+db.users.update({ "user_name": "jmar777444@test.com"},  { $pull: { "user_books.0": 1}  }) 
+ 
+
+
+https://th-book-exchange-thadia.c9users.io/requestbook/requestbook/tst3@test.com/test777444@test.com/58257075fe73934c55f6d6e8/b565
+
+
+db.users.find( { $match:
+    { "user_books.book_title": {$eq: "Book4" } }} ).pretty()
+
+
+
+db.users.update({ "user_name": "test777444@test.com","user_books.book_title": "Book4"},{ $push: { "user_books.$.book_requests": "tst3@test.com"} }) 
