@@ -165,11 +165,11 @@ myApp.controller('mainController', function($scope, $http, $window) {
             });
 
     }
-    $scope.requestBook = function(userName,ownerName, bookid,bookTitle) {
-        $http.get("/requestbook/" + userName + "/" + ownerName+ "/"+ bookid + "/" + bookTitle)
+    $scope.requestBook = function(userName,ownerName, bookTitleRequested, bookTitleOffered) {
+        $http.get("/requestbook/" + userName + "/" + ownerName+ "/" + bookTitleRequested  + "/" + bookTitleOffered)
             .then(function(response) {
                 if (response.data == 'true') {
-                    console.log('--- INFO DATA WAS SAVED.');
+                    console.log('--- INFO DATA WAS SAVED. ' + bookTitleOffered);
                 }
             });
         

@@ -85,11 +85,12 @@
                                          <li><h4>{{user_book.book_title}}</h4></li>
                                          <li>Author: {{user_book.book_author}} </li>
                                          <li>Year: {{user_book.book_year}} </li>
-                                          <label for="text" ng-cloak>Select a book to offer:</label> 
-                                          <select ng-model="selectedBook" ng-options="bookTitle as book.book_title for book in myBooks" > 
-                                                <option ng-options="bookTitle in book.book_title" ng-cloak value="{{ book.book_title }}">{{book.book_title}}</option>   
+                                          <label for="selectedBook" ng-cloak>Select a book to offer:</label> 
+                                          <select ng-init="selectedBook = myBooks[0].book_title" ng-model="selectedBook" ng-options="book.book_title for book in myBooks"> 
+                                                <option ng-options="book.book_title for book in myBooks" value="{{book.book_title}}">{{book.book_title}}</option> 
                                           </select> 
-                                         <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book.book_title,bookOffered)">Request</button>
+                                          <p>{{selectedBook.book_title}}</p>
+                                         <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book.book_title,selectedBook.book_title)">Request</button>
                                      </ul>
                                      </div>
                                      
