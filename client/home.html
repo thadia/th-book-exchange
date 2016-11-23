@@ -74,7 +74,7 @@
                          <!--     <img src="..." alt="...">-->
                         
                          <ul style="list-style: none;" >
-                             <button ng-show="state._id != null" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{ $index + 1 }}">State: {{state._id}}</button>
+                             <button ng-show="state._id != null && state.availableusers[0] != null" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{ $index + 1 }}">State: {{state._id}}</button>
                          </ul>
                          <div id="demo{{ $index + 1 }}" class="collapse panel-collapse" >
                              
@@ -82,12 +82,14 @@
                                  <button ng-show="state._id != null && user.user_books[0] != null" type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}">{{user.user_city}} - {{user.user_name}}</button>
                                      <div id="{{user._id}}{{ $index + 1}}" class="collapse panel-collapse" >
                                      <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
-                                         <li><h4>{{user_book.book_title}} 
-                                                 <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book._id,user_book.book_title)">Request</button>
-                                             <h4>
-                                         </li>
+                                         <li><h4>{{user_book.book_title}}</h4></li>
                                          <li>Author: {{user_book.book_author}} </li>
                                          <li>Year: {{user_book.book_year}} </li>
+                                          <label for="text" ng-cloak>Select a book to offer:</label> 
+                                          <select ng-model="selectedBook" ng-options="bookTitle as book.book_title for book in myBooks" > 
+                                                <option ng-options="bookTitle in book.book_title" ng-cloak value="{{ book.book_title }}">{{book.book_title}}</option>   
+                                          </select> 
+                                         <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book.book_title,bookOffered)">Request</button>
                                      </ul>
                                      </div>
                                      
