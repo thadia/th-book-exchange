@@ -57,9 +57,11 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home" ng-click="getAvailableBooks(userName)">Available Books</a></li>
+            <li><a data-toggle="tab" href="#myRequests">My Requests</a></li>
             <li><a data-toggle="tab" href="#myInfo" ng-click="getMyInfo(userName)">My Info</a></li>
             <li><a data-toggle="tab" href="#myBooks" ng-click="getMyBooks(userName)">My Books</a></li>
             <li><a data-toggle="tab" href="#addBook">Add Book</a></li>
+
 
         </ul>
 
@@ -112,7 +114,13 @@
 ----------------------------------------------   
                     <p>{{availableBooks}}</p>  -->
             </div>
-            
+            <div id="myRequests" class="tab-pane fade" ng-model="request">  <!--  <h3>My Requests</h3> -->
+                <ul style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
+                    
+                </ul>
+
+
+             </div> 
             <div id="myInfo" class="tab-pane fade">  <!--  <h3>MyInfo</h3> -->
                 <br/>
                 <div class="input-group">
