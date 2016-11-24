@@ -40,12 +40,12 @@
           </ul>
         </li>  -->
                 </ul>
-                <form class="navbar-form navbar-left">
+            <!--     <form class="navbar-form navbar-left">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Book info">
                     </div>
                     <button type="submit" class="btn btn-default">Search</button>
-                </form>
+                </form> -->
 
             </div>
             <!-- /.navbar-collapse -->
@@ -85,12 +85,14 @@
                                          <li><h4>{{user_book.book_title}}</h4></li>
                                          <li>Author: {{user_book.book_author}} </li>
                                          <li>Year: {{user_book.book_year}} </li>
-                                          <label for="selectedBook" ng-cloak>Select a book to offer:</label> 
+                                          <li>
+                                              <label for="selectedBook" ng-cloak><small>Select a book to offer:</small></label> 
                                           <select ng-init="selectedBook = myBooks[0].book_title" ng-model="selectedBook" ng-options="book.book_title for book in myBooks"> 
                                                 <option ng-options="book.book_title for book in myBooks" value="{{book.book_title}}">{{book.book_title}}</option> 
                                           </select> 
-                                          <p>{{selectedBook.book_title}}</p>
+                                  <!--          <p>{{selectedBook.book_title}}</p> -->
                                          <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book.book_title,selectedBook.book_title)">Request</button>
+                                         </li>
                                      </ul>
                                      </div>
                                      
@@ -141,15 +143,16 @@
             </div>
             <div id="myBooks" class="tab-pane fade" ng-model="book">  <!--  <h3>My Books</h3> -->
                 <ul style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
+                    </br>
                     <!-- [{{$index + 1}}] -->
                  <!--     <img src="..." alt="...">-->
                     <li><h4><button type="submit" class="btn btn-xs btn-danger" ng-click="deleteMyBook(userName,book.book_title,book.book_author,book.book_year)">X</button>
                         {{book.book_title}}</h4></li>
                     <li>Author: {{book.book_author}} </li>
                     <li>Year: {{book.book_year}} </li>
-                    <li>Book Requests:</li>
+                    <li>Requests for this book:</li>
                     <ul class="list_requests" ng-repeat="request in book.book_requests">
-                        <li> {{request}} <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">yes</button>
+                        <li>Book offered: <b>{{request.book_title}}</b> from: <b>{{request.user_name}}</b> <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">yes</button>
                             <button type="submit" class="btn btn-xs btn-danger" ng-click="reject(bookTitle,bookUser)">no</button></li>
 
 

@@ -131,3 +131,7 @@ db.users.find( { $match:
 
 
 db.users.update({ "user_name": "test777444@test.com","user_books.book_title": "Book4"},{ $push: { "user_books.$.book_requests": "tst3@test.com"} }) 
+
+
+
+db.users.remove( {"_id": ObjectId("58266e19d52818781f6ffb10")});
