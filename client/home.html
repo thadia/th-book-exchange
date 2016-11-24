@@ -152,8 +152,8 @@
                     <li>Year: {{book.book_year}} </li>
                     <li>Requests for this book:</li>
                     <ul class="list_requests" ng-repeat="request in book.book_requests">
-                        <li>Book offered: <b>{{request.book_title}}</b> from: <b>{{request.user_name}}</b> <button type="submit" class="btn btn-xs btn-success" ng-click="approve(bookTitle,bookUser)">yes</button>
-                            <button type="submit" class="btn btn-xs btn-danger" ng-click="reject(bookTitle,bookUser)">no</button></li>
+                        <li>Book offered: <b>{{request.book_title}}</b> from: <b>{{request.user_name}}</b> <button type="submit" class="btn btn-xs btn-success" ng-click="approve(userName,request.user_name,book.book_title,request.book_title)">yes</button>
+                            <button type="submit" class="btn btn-xs btn-danger" ng-click="rejectBook(userName,request.user_name,book.book_title,request.book_title)">no</button></li>
 
 
                     </ul>

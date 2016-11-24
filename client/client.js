@@ -182,6 +182,15 @@ myApp.controller('mainController', function($scope, $http, $window) {
         });
 
     }
+    $scope.rejectBook = function(userName,ownerName, bookTitleRequested, bookTitleOffered) {
+        $http.get("/rejectbook/" + userName + "/" + ownerName + "/" + bookTitleRequested  + "/" + bookTitleOffered)
+            .then(function(response) {
+                if (response.data == 'true') {
+                    console.log('--- Request was Deleted. Book Requested: ' + bookTitleRequested + 'User_request: '+ ownerName + "Book_offered: " + bookTitleOffered);
+                }
+            });
+    }
+   
     //requestBook(userName,bookTitle,bookUser)
     //DELETE
     $scope.deleteMyBook = function(userName,bookTitle,bookAuthor,bookYear) {
