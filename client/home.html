@@ -115,17 +115,18 @@
     </div>
     <div id="myRequests" class="tab-pane fade" ng-model="request">
         <!--  <h3>My Requests</h3> -->
-        <ul style="list-style: none;" class="requestedBooks" ng-repeat="user in requestedBooks">
+        <div style="list-style: none;" class="requestedBooks" ng-repeat="user in requestedBooks">
             </br>
-            <ul style="list-style: none;" class="requestedBooks" ng-repeat="book in user.user_books">
+            <div style="list-style: none;" class="requestedBooks" ng-repeat="book in user.user_books">
 
                 <ul ng-show="bookoffered.user_name == userName" style="list-style: none;" class="list_books" ng-repeat="bookoffered in book.book_requests">
                     <li><h4>{{book.book_title}}</h4></li>
                     <li><b>Location:</b> {{user.user_city}}, {{user.user_state}}</li>
                     <li><b>Book Owner: </b>{{user.user_name}} </li>
                     <li><b>Book Offered:</b> {{bookoffered.book_title}} </li>
-                </ul>
-            </ul>
+                </ul>    
+                </div>
+            </div>
 
             <!-- NOTE {{requestedBooks}} -->
 
