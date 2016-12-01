@@ -33,6 +33,17 @@ myApp.controller('mainController', function($scope, $http, $window) {
                             $scope.availableBooks = response.data;
                             console.log('--- Get Available Books ' + JSON.stringify($scope.availableBooks));
                 }
+                
+                 $http.get("/myrequestedbooks/" + $scope.userName)
+                    .then(function(response) {
+                        if (response.data != null) {
+                            $scope.requestedBooks = response.data;
+                            console.log('--- Get My Requested Books ' + JSON.stringify($scope.requestedBooks));
+                        }
+                 });
+
+                
+                
             });
             }
         });
@@ -146,6 +157,17 @@ myApp.controller('mainController', function($scope, $http, $window) {
             });
     }
     
+    $scope.getMyRequestedBooks = function(userName) {
+        $http.get("/myrequestedbooks/" + $scope.userName)
+            .then(function(response) {
+                if (response.data != null) {
+                    $scope.requestedBooks = response.data;
+                    console.log('--- Get My Requested Books ' + JSON.stringify($scope.requestedBooks));
+                }
+            });
+
+    }
+    
     //UPDATE
     $scope.addBook = function(userName, bookTitle, bookAuthor, bookYear) {
         $http.get("/books/" + userName + "/add/" + bookTitle + "/" + bookAuthor + "/" + bookYear)
@@ -191,7 +213,6 @@ myApp.controller('mainController', function($scope, $http, $window) {
             });
     }
    
-    //requestBook(userName,bookTitle,bookUser)
     //DELETE
     $scope.deleteMyBook = function(userName,bookTitle,bookAuthor,bookYear) {
         $http.get("/books/" + userName + "/remove/" + bookTitle + "/" + bookAuthor + "/" + bookYear)

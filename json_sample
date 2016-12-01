@@ -125,8 +125,7 @@ db.users.update({ "user_name": "jmar777444@test.com"},  { $pull: { "user_books.0
 https://th-book-exchange-thadia.c9users.io/requestbook/requestbook/tst3@test.com/test777444@test.com/58257075fe73934c55f6d6e8/b565
 
 
-db.users.find( { $match:
-    { "user_books.book_title": {$eq: "Book4" } }} ).pretty()
+db.users.find(  { "user_books.book_requests.$.user_name": "t1@t.com"} ).pretty()
 
 
 

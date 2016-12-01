@@ -57,7 +57,7 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home" ng-click="getAvailableBooks(userName)">Available Books</a></li>
-            <li><a data-toggle="tab" href="#myRequests">My Requests</a></li>
+            <li><a data-toggle="tab" href="#myRequests" ng-click="getMyRequestedBooks(userName)">My Requests</a></li>
             <li><a data-toggle="tab" href="#myInfo" ng-click="getMyInfo(userName)">My Info</a></li>
             <li><a data-toggle="tab" href="#myBooks" ng-click="getMyBooks(userName)">My Books</a></li>
             <li><a data-toggle="tab" href="#addBook">Add Book</a></li>
@@ -65,44 +65,43 @@
 
         </ul>
 
-        <div class="tab-content">
-            <div id="home" class="tab-pane fade in active" ng-model:"availableBooks"> <!--  <h3>Available Books</h3> -->
-                 
-                    </br>
-                    
-                    
-                     <div class="list_users" ng-repeat="state in availableBooks">
-                         <!-- [{{$index + 1}}] -->
-                         <!--     <img src="..." alt="...">-->
-                        
-                         <ul style="list-style: none;" >
-                             <button ng-show="state._id != null && state.availableusers[0] != null" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{ $index + 1 }}">State: {{state._id}}</button>
-                         </ul>
-                         <div id="demo{{ $index + 1 }}" class="collapse panel-collapse" >
-                             
-                             <ul style="list-style: none;" ng-repeat="user in state.availableusers">
-                                 <button ng-show="state._id != null && user.user_books[0] != null" type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}">{{user.user_city}} - {{user.user_name}}</button>
-                                     <div id="{{user._id}}{{ $index + 1}}" class="collapse panel-collapse" >
-                                     <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
-                                         <li><h4>{{user_book.book_title}}</h4></li>
-                                         <li>Author: {{user_book.book_author}} </li>
-                                         <li>Year: {{user_book.book_year}} </li>
-                                          <li>
-                                              <label for="selectedBook" ng-cloak><small>Select a book to offer:</small></label> 
-                                          <select ng-init="selectedBook = myBooks[0].book_title" ng-model="selectedBook" ng-options="book.book_title for book in myBooks"> 
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active" ng-model: "availableBooks">
+        <!--  <h3>Available Books</h3> -->
+        </br>
+        <div class="list_users" ng-repeat="state in availableBooks">
+            <!-- [{{$index + 1}}] -->
+            <!--     <img src="..." alt="...">-->
+            <ul style="list-style: none;">
+                <button ng-show="state._id != null && state.availableusers[0] != null" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo{{ $index + 1 }}">State: {{state._id}}</button>
+            </ul>
+            <div id="demo{{ $index + 1 }}" class="collapse panel-collapse">
+
+                <ul style="list-style: none;" ng-repeat="user in state.availableusers">
+                    <button ng-show="state._id != null && user.user_books[0] != null" type="button" class="btn btn-xs btn-default" data-toggle="collapse" data-target="#{{user._id}}{{ $index + 1 }}">{{user.user_city}} - {{user.user_name}}</button>
+                    <div id="{{user._id}}{{ $index + 1}}" class="collapse panel-collapse">
+                        <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
+                            <li>
+                                <h4>{{user_book.book_title}}</h4>
+                            </li>
+                            <li>Author: {{user_book.book_author}} </li>
+                            <li>Year: {{user_book.book_year}} </li>
+                            <li>
+                                <label for="selectedBook" ng-cloak><small>Select a book to offer:</small></label>
+                                <select ng-init="selectedBook = myBooks[0].book_title" ng-model="selectedBook" ng-options="book.book_title for book in myBooks"> 
                                                 <option ng-options="book.book_title for book in myBooks" value="{{book.book_title}}">{{book.book_title}}</option> 
-                                          </select> 
-                                  <!--          <p>{{selectedBook.book_title}}</p> -->
-                                         <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book.book_title,selectedBook.book_title)">Request</button>
-                                         </li>
-                                     </ul>
-                                     </div>
-                                     
-                                </ul>     
-                         </div>                     
+                                          </select>
+                                <!--          <p>{{selectedBook.book_title}}</p> -->
+                                <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book.book_title,selectedBook.book_title)">Request</button>
+                            </li>
+                        </ul>
                     </div>
-          
-          <!--     
+
+                </ul>
+            </div>
+        </div>
+
+        <!--     
                     <li ng-show="user.user_city.length && user.user_books.length"><h4>Location: {{user.user_city}},{{user.user_state}}</h4></li>
                     <li ng-show="user.user_books.length">Owner: {{user.user_name}}</li>
                     <ul style="list-style: none;" class="list_books" ng-repeat="user_book in user.user_books">
@@ -113,14 +112,24 @@
                     
 ----------------------------------------------   
                     <p>{{availableBooks}}</p>  -->
-            </div>
-            <div id="myRequests" class="tab-pane fade" ng-model="request">  <!--  <h3>My Requests</h3> -->
-                <ul style="list-style: none;" class="list_books" ng-repeat="book in myBooks">
-                    
+    </div>
+    <div id="myRequests" class="tab-pane fade" ng-model="request">
+        <!--  <h3>My Requests</h3> -->
+        <ul style="list-style: none;" class="requestedBooks" ng-repeat="user in requestedBooks">
+            </br>
+            <ul style="list-style: none;" class="requestedBooks" ng-repeat="book in user.user_books">
+
+                <ul ng-show="bookoffered.user_name == userName" style="list-style: none;" class="list_books" ng-repeat="bookoffered in book.book_requests">
+                    <li><h4>{{book.book_title}}</h4></li>
+                    <li><b>Location:</b> {{user.user_city}}, {{user.user_state}}</li>
+                    <li><b>Book Owner: </b>{{user.user_name}} </li>
+                    <li><b>Book Offered:</b> {{bookoffered.book_title}} </li>
                 </ul>
+            </ul>
 
+            <!-- NOTE {{requestedBooks}} -->
 
-             </div> 
+    </div>
             <div id="myInfo" class="tab-pane fade">  <!--  <h3>MyInfo</h3> -->
                 <br/>
                 <div class="input-group">
