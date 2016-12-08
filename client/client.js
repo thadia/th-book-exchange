@@ -57,6 +57,12 @@ myApp.controller('mainController', function($scope, $http, $window) {
                     console.log(response.data + 'LOG HERE');
                     $window.location.href = '/home/true';
                 }
+                if(response.data == 'false'){
+                    alert("Password invalid.");
+                }
+                if(response.data == 'badUser'){
+                    alert("Username invalid.");
+                }
             });
     }
     $scope.logout = function() {
