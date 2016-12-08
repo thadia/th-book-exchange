@@ -57,7 +57,7 @@
     <div class="container">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home" ng-click="getAvailableBooks(userName)">Available Books</a></li>
-            <li><a data-toggle="tab" href="#myRequests" ng-click="getMyRequestedBooks(userName)">My Requests</a></li>
+            <li><a data-toggle="tab" href="#myRequests" ng-click="getMyRequestedBooks(userName)">My Pending Requests</a></li>
             <li><a data-toggle="tab" href="#myInfo" ng-click="getMyInfo(userName)">My Info</a></li>
             <li><a data-toggle="tab" href="#myBooks" ng-click="getMyBooks(userName)">My Books</a></li>
             <li><a data-toggle="tab" href="#addBook">Add Book</a></li>
@@ -87,11 +87,13 @@
                             <li>Author: {{user_book.book_author}} </li>
                             <li>Year: {{user_book.book_year}} </li>
                             <li>
-                                <label for="selectedBook" ng-cloak><small>Select a book to offer:</small></label>
-                                <select ng-init="selectedBook = myBooks[0].book_title" ng-model="selectedBook" ng-options="book.book_title for book in myBooks"> 
-                                                <option ng-options="book.book_title for book in myBooks" value="{{book.book_title}}">{{book.book_title}}</option> 
-                                          </select>
-                                <!--          <p>{{selectedBook.book_title}}</p> -->
+                                <label><small>Select a book to offer:</small></label>
+                                <select ng-model='selectedBook' ng-options="book.book_title for book in myBooks">
+                                    {{book.book_title}}
+                                  <option value="">-- Select a book --</option>
+                                    </option>    
+                                </select>
+
                                 <button ng-hide="user_book.book_requests.indexOf(userName) !== -1" type="submit" class="btn btn-xs btn-success" ng-click="requestBook(userName,user.user_name,user_book.book_title,selectedBook.book_title)">Request</button>
                             </li>
                         </ul>
@@ -170,7 +172,7 @@
                     <li>Year: {{book.book_year}} </li>
                     <li>Requests for this book:</li>
                     <ul class="list_requests" ng-repeat="request in book.book_requests">
-                        <li>Book offered: <b>{{request.book_title}}</b> from: <b>{{request.user_name}}</b> <button type="submit" class="btn btn-xs btn-success" ng-click="approve(userName,request.user_name,book.book_title,request.book_title)">yes</button>
+                        <li>Book offered: <b>{{request.book_title}}</b> from: <b>{{request.user_name}}</b> <button type="submit" class="btn btn-xs btn-success" ng-click="acceptBook(userName,request.user_name,book.book_title,request.book_title)">yes</button>
                             <button type="submit" class="btn btn-xs btn-danger" ng-click="rejectBook(userName,request.user_name,book.book_title,request.book_title)">no</button></li>
 
 

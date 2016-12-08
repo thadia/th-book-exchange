@@ -213,6 +213,15 @@ myApp.controller('mainController', function($scope, $http, $window) {
             });
     }
    
+    $scope.acceptBook = function(userName,ownerName, bookTitleRequested, bookTitleOffered) {
+        $http.get("/acceptbook/" + userName + "/" + ownerName + "/" + bookTitleRequested  + "/" + bookTitleOffered)
+            .then(function(response) {
+                if (response.data == 'true') {
+                    console.log('--- Request was Accepted. Book Requested: ' + bookTitleRequested + 'User_request: '+ ownerName + "Book_offered: " + bookTitleOffered);
+                }
+            });
+    }
+
     //DELETE
     $scope.deleteMyBook = function(userName,bookTitle,bookAuthor,bookYear) {
         $http.get("/books/" + userName + "/remove/" + bookTitle + "/" + bookAuthor + "/" + bookYear)
